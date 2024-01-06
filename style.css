@@ -1,0 +1,869 @@
+@font-face {
+    font-family: rejoy;
+    src: url(/src/Rejouice-Headline.ttf);
+}
+
+@font-face {
+    font-family: nb;
+    src: url(/src/NBInternationalProBoo.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "nb";
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.loader{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    gap: 10px;
+}
+
+.loader h3{
+    font-size: 2vw;
+    font-weight: 100;
+}
+
+
+
+.page1{
+    height: 100vh;
+    width: 100%;
+    background-color: #dadada;
+    position: relative;
+}
+
+.cursor{
+    height: 7.5vw;
+    width: 7.5vw;
+    background-color: #ff5f38;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+}
+
+.cursor h5{
+    font-size: 1.15vw;
+    font-weight: 500;
+}
+
+.menu{
+    height: 0vh;
+    position: absolute;
+}
+.menu.active{
+    position: absolute;
+    z-index: 12;
+    height: 67vh;
+    width: 100vw;
+    background-color: #FF5F38;
+}
+ 
+.menu.active #close{
+    z-index: 2;
+}
+.menu-header{
+    height: 40px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 3vw;
+    margin-top: 2vw;
+}
+
+.menu-header a{
+    color: #2D2B2B;
+    text-decoration: none;
+    font-weight: lighter;
+    cursor: pointer;
+    font-weight: lighter;
+    font-size: 1.5vw;
+    letter-spacing: -1px;
+}
+.menu-header #close{
+    position: relative;
+    cursor: pointer;
+}
+.menu-header #close::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.menu-header #close:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.menu-sec{
+    height: 250px;
+    width: 100vw;
+    padding: 0vw 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.menu-sec .vid{
+    height: 250px;
+    width: 320px;
+    border-radius: 8px;
+    position: relative;
+}
+.menu-sec .vid video{
+    width: 300px;
+    height: 220px;
+    border-radius: 8px;
+}
+.menu-sec .vid .play{
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    gap: 5px;
+    font-weight: lighter;
+}
+.menu-sec .vid .play #play{
+    position: relative;
+}
+.menu-sec .vid .play #play::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.menu-sec .vid .play #play:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.menu-sec .vid .play i{
+    color: #fff;
+}
+.menu-sec .vid .play h4{
+    font-weight: lighter;
+    font-size: 1.1vw;
+    margin-left: 170px;
+}
+.menu-sec .links h3{
+    font-size: 3.1vw;
+    font-weight: lighter;
+    margin-right: 15vw;
+    cursor: pointer;
+    line-height: 1;
+    position: relative;
+}
+.menu-sec .links h3::after{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    background-color: #000;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.menu-sec .links h3:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.menu-sec .links button{
+    background-color: transparent;
+    border: 1px solid #000;
+    padding: 1vw 1.8vw;
+    border-radius: 5px;
+    font-size: 1.2vw;
+    margin: 1.5vw 0vw 0vw 1.5vw;
+    cursor: pointer;
+}
+.menu-sec .links button:hover{
+    background-color: #000;
+    color: #FF5F38;
+    transition: background-color .3s ease;
+}
+.menu .menu-border{
+    height: 1px;
+    width: 0vw;
+    margin: 4vw 3vw 0vw 3vw;
+    background-color: #2D2B2B;
+}
+.menu .small-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu .small-links h4{
+    font-weight: lighter;
+    padding: 1vw 3vw;
+}
+.menu .small-links h3{
+    font-weight: lighter;
+    padding: 1vw 3vw;
+    font-size: 1.2vw;
+    cursor: pointer;
+    position: relative;
+}
+.menu .small-links h3::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 80%;
+    bottom: 25%;
+    left: 10%;
+    transform: scaleX(0);
+    background-color: #000;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.menu .small-links h3:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.page1 video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+.page1-content{
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+    position: relative;
+    z-index: 10;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav{
+    /* height: 100px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* background-color: red; */
+    padding: 3vw 3vw;
+}
+
+nav h3 a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4vw;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+nav h4{
+    font-size: 1.4vw;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.page1-content h1{
+    font-family: rejoy;
+    font-size: 27vw;
+    font-weight: 100;
+    line-height: 27vw;
+}
+
+.page1-content h1 span{
+    display: inline-block;
+    font-family: rejoy;
+}
+
+.page2{
+    height: 100vh;
+    width: 100%;
+    background-color: beige;
+    position: relative;
+    padding: 5vw 2.8vw;
+}
+
+.page2-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.8vw;
+    overflow: hidden;
+}
+.line, .line2 {
+    margin-bottom: 1vw;
+    display: block;
+    background:black;
+    background-repeat: no-repeat;
+    width: 0vw;
+    height: 0.8px;
+  }
+
+.page2-top h3{
+    /* background-color: red; */
+    font-size: 1.7vw;
+    font-weight: 500;
+    width: 26%;
+}
+
+.page2-top h4{
+    font-size: 1.7vw;
+    font-weight: 500;
+}
+
+.elem{
+    overflow: hidden;
+}
+
+.elem h1{
+    /* background-color: blue; */
+    font-size: 4.2vw;
+    font-weight: 500;
+}
+
+.page3{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    padding: 3vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.page3-top{
+    overflow: hidden;
+    height: 244px;
+    width: 45%;
+}
+
+.page3-top h4{
+    margin-bottom: 1vw;
+    font-size: 1vw;
+    font-weight: 500;
+}
+
+.page3-top h4 i{
+    color: #161616;
+    margin-left: 5px;
+}
+
+.page3-top h4 span{
+    font-size: 0.7vw;
+    background-color: #000;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
+
+.page3-top h1{
+    cursor: pointer;
+    font-size: 4vw;
+    font-weight: 500;
+    /* align-items: center; */
+    position: relative;
+    line-height: 1;
+    border-bottom: solid #000 3px;
+}
+
+.page3-top h1::after{
+    content: '';
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -2px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    background-color: white;
+    transition: transform .4s ease-out;
+}
+
+.page3-top h1:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.page3-top h1:hover{
+    border-bottom: solid #000 2px;
+}
+
+
+
+.page3-element{
+    height: 75vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1vw;
+}
+
+.page3 .page3-text{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3vw 2vw 1vw 2vw;
+}
+.page3 .page3-text h2{
+    font-weight: lighter;
+    font-size: 1.7vw;
+    letter-spacing: -1px;
+    position: relative;
+    cursor: pointer;
+}
+
+.page3 .page3-text h2 i {
+    color: #161616;
+    margin-right: 5px;
+}
+.page3 .page3-text h2::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    background-color: #000;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.page3 .page3-text h2:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.page3-element .box{
+    height: 100%;
+    width: 32.5%;
+    /* background-color: blue; */
+    position: relative;
+    cursor: pointer;
+}
+
+.page3-element .box img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* object-position: center; */
+    transition: all linear 0.7s;
+}
+
+.page3-element .box:hover img{
+    opacity: 0;
+}
+.page3-element .box video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.page4, .page6{
+    width: 100%;
+    height: 80vh;
+    /* background-color: beige; */
+    position: relative;
+    padding: 5vw 2.8vw;
+}
+
+.page4-top , .page6-top{
+    padding-bottom: 0.8vw;
+    overflow: hidden;
+}
+
+.page4-top h3, .page6-top h3{
+    font-size: 1.2vw;
+    font-weight: 500;
+    width: fit-content;
+    line-height: 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+.page4 .page4-top h3::after, .page6 .page6-top h3::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform .35s ease-out;
+}
+
+.page4 .page4-top h3:hover:after, .page6 .page6-top h3:hover:after{
+    transform: scaleX(1);
+}
+
+.elem2, .elem3{
+    overflow: hidden;
+}
+
+.elem2 h1{
+    /* background-color: blue; */
+    font-size: 4.2vw;
+    font-weight: 500;
+}
+.elem3 h1{
+    /* background-color: blue; */
+    font-size: 4vw;
+    font-weight: 500;
+}
+
+.page5{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* background-color: #000; */
+}
+
+.cursor2{
+    height: 7.5vw;
+    width: 7.5vw;
+    background-color: #000000;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+}
+
+.cursor2 h5{
+    color: white;
+    font-size: 1.15vw;
+    font-weight: 500;
+}
+
+.page5 video{
+    height: 110%;
+    width: 100%;
+}
+
+.page5 svg{
+    position: absolute;
+  width: 100%;
+  height: 75%; /* Adjust as needed */
+  top: 50%; /* Uncomment to vertically center */
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page5-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    /* margin-top: 1.5vw; */
+ }
+
+ .page5-text .seat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+ }
+
+.page5 .page5-text .seat h2{
+    font-size: 4vw;
+    font-weight: lighter;
+    letter-spacing: -1.5px;
+}
+
+.page5 .page5-text .seat .seat-span{
+    display: flex;
+    align-items: center;
+}
+
+.page7{
+    height: 100vh;
+    width: 100%;
+    padding: 4vw 0;
+    position: relative;
+}
+
+.page7-top h1{
+    font-size: 10vw;
+    font-family: rejoy;
+    font-weight: 100;
+    border-bottom: 1px solid #000;
+    /* background-color: red; */
+    margin-left: 2%;
+    width: 96%;
+}
+
+.swiperElem{
+    /* background-color: #ff5f38; */
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    margin-top: -5%;
+}
+
+.swiper {
+    width: 130%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    /* height: 100%; */
+    object-fit: cover;
+  }
+
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page8{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page8 h3{
+      position: relative;
+    font-size: 1.2vw;
+    font-weight: 100;
+    line-height: 1vw;
+    font-family: nb;
+    cursor: pointer;
+  }
+
+  .page8 h3::after{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    /* transform: translate(-50%, -50%); */
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+
+.page8 h3:hover::after{
+      transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+
+  .page8 h1{
+    cursor: pointer;
+    font-size: 4vw;
+    font-weight: 100;
+    position: relative;
+  }
+
+  .page8 h1::after{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    /* transform: translate(-50%, -50%); */
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+
+.page8 h1:hover::after{
+      transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+
+  
+footer{
+    height: 100vh;
+    width: 100vw;
+    background-color:#0E0E0E;
+}
+footer .footer-top{
+    height: 65vh;
+    width: 100vw;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-top .first{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15vw;
+    padding: 2.5vw;
+    color: #fff;
+}
+.footer-top .first .first-top h2{
+    font-weight: lighter;
+    letter-spacing: -.5px;
+}
+.footer-top .first .first-top button{
+    padding:  15px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    font-size: 1.1vw;
+    font-weight: lighter;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+.footer-top .first .first-top button:hover{
+    background-color: #fff;
+    color: #000;
+}
+.footer-top .first .first-btm h4{
+    font-weight: lighter;
+}
+.footer-top .second{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: -2.5vw;
+    padding-right: 3vw;
+    color: #fff;
+}
+.second .second-one{
+    display: flex;
+    flex-direction: column;
+    gap: 15vw;
+}
+.second .second-one .span span{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+}
+.second .second-one .span>span::after,.second .second-one .span1>span::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+    transform: scaleX(0);
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.second .second-one .span>span:hover::after,.second .second-one .span1>span:hover::after{
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+.second .second-two{
+    display: flex;
+    flex-direction: column;
+    gap: 17.5vw;
+}
+.second .second-two .span span{
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+.second .second-two .span>span::after,.second .second-two .span1>span::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+    transform: scaleX(0);
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform .35s ease-out;
+}
+.second .second-two .span>span:hover::after,.second .second-two .span1>span:hover::after{
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+.second .second-two .span1{
+    position: relative;
+    cursor: pointer;
+}
+.second .second-one .span1{
+    position: relative;
+    cursor: pointer;
+}
+footer .footer-bottom{
+    height: 35vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+footer .footer-bottom h1 span{
+    display: inline-block;
+   font-size: 19vw;
+   margin-top: -3.2vw;
+   color: #fff;
+}
